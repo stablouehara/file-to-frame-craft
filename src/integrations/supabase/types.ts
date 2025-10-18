@@ -14,7 +14,341 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      ad_copies: {
+        Row: {
+          body: string | null
+          created_at: string | null
+          id: string
+          is_selected: boolean | null
+          job_posting_id: string
+          keywords: string[] | null
+          media_name: string
+          title: string | null
+          version: number | null
+        }
+        Insert: {
+          body?: string | null
+          created_at?: string | null
+          id?: string
+          is_selected?: boolean | null
+          job_posting_id: string
+          keywords?: string[] | null
+          media_name: string
+          title?: string | null
+          version?: number | null
+        }
+        Update: {
+          body?: string | null
+          created_at?: string | null
+          id?: string
+          is_selected?: boolean | null
+          job_posting_id?: string
+          keywords?: string[] | null
+          media_name?: string
+          title?: string | null
+          version?: number | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "ad_copies_job_posting_id_fkey"
+            columns: ["job_posting_id"]
+            isOneToOne: false
+            referencedRelation: "job_postings"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      companies: {
+        Row: {
+          created_at: string | null
+          description: string | null
+          id: string
+          industry: string | null
+          name: string
+          size: string | null
+          updated_at: string | null
+          user_id: string
+        }
+        Insert: {
+          created_at?: string | null
+          description?: string | null
+          id?: string
+          industry?: string | null
+          name: string
+          size?: string | null
+          updated_at?: string | null
+          user_id: string
+        }
+        Update: {
+          created_at?: string | null
+          description?: string | null
+          id?: string
+          industry?: string | null
+          name?: string
+          size?: string | null
+          updated_at?: string | null
+          user_id?: string
+        }
+        Relationships: []
+      }
+      job_postings: {
+        Row: {
+          benefits: string | null
+          company_id: string | null
+          created_at: string | null
+          description: string | null
+          id: string
+          job_type: string | null
+          location: string | null
+          requirements: string | null
+          salary_range: string | null
+          status: string | null
+          title: string
+          updated_at: string | null
+          user_id: string
+        }
+        Insert: {
+          benefits?: string | null
+          company_id?: string | null
+          created_at?: string | null
+          description?: string | null
+          id?: string
+          job_type?: string | null
+          location?: string | null
+          requirements?: string | null
+          salary_range?: string | null
+          status?: string | null
+          title: string
+          updated_at?: string | null
+          user_id: string
+        }
+        Update: {
+          benefits?: string | null
+          company_id?: string | null
+          created_at?: string | null
+          description?: string | null
+          id?: string
+          job_type?: string | null
+          location?: string | null
+          requirements?: string | null
+          salary_range?: string | null
+          status?: string | null
+          title?: string
+          updated_at?: string | null
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "job_postings_company_id_fkey"
+            columns: ["company_id"]
+            isOneToOne: false
+            referencedRelation: "companies"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      knowledge_base: {
+        Row: {
+          category: string | null
+          content: string | null
+          created_at: string | null
+          id: string
+          is_public: boolean | null
+          is_success_case: boolean | null
+          success_metrics: Json | null
+          tags: string[] | null
+          title: string
+          updated_at: string | null
+          user_id: string | null
+        }
+        Insert: {
+          category?: string | null
+          content?: string | null
+          created_at?: string | null
+          id?: string
+          is_public?: boolean | null
+          is_success_case?: boolean | null
+          success_metrics?: Json | null
+          tags?: string[] | null
+          title: string
+          updated_at?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          category?: string | null
+          content?: string | null
+          created_at?: string | null
+          id?: string
+          is_public?: boolean | null
+          is_success_case?: boolean | null
+          success_metrics?: Json | null
+          tags?: string[] | null
+          title?: string
+          updated_at?: string | null
+          user_id?: string | null
+        }
+        Relationships: []
+      }
+      media_recommendations: {
+        Row: {
+          created_at: string | null
+          estimated_cost: number | null
+          estimated_reach: number | null
+          id: string
+          job_posting_id: string
+          media_name: string
+          ranking: number | null
+          reason: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          estimated_cost?: number | null
+          estimated_reach?: number | null
+          id?: string
+          job_posting_id: string
+          media_name: string
+          ranking?: number | null
+          reason?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          estimated_cost?: number | null
+          estimated_reach?: number | null
+          id?: string
+          job_posting_id?: string
+          media_name?: string
+          ranking?: number | null
+          reason?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "media_recommendations_job_posting_id_fkey"
+            columns: ["job_posting_id"]
+            isOneToOne: false
+            referencedRelation: "job_postings"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      performance_data: {
+        Row: {
+          applications: number | null
+          clicks: number | null
+          cost: number | null
+          created_at: string | null
+          hires: number | null
+          id: string
+          impressions: number | null
+          interviews: number | null
+          job_posting_id: string
+          media_name: string
+          period_end: string | null
+          period_start: string | null
+          updated_at: string | null
+        }
+        Insert: {
+          applications?: number | null
+          clicks?: number | null
+          cost?: number | null
+          created_at?: string | null
+          hires?: number | null
+          id?: string
+          impressions?: number | null
+          interviews?: number | null
+          job_posting_id: string
+          media_name: string
+          period_end?: string | null
+          period_start?: string | null
+          updated_at?: string | null
+        }
+        Update: {
+          applications?: number | null
+          clicks?: number | null
+          cost?: number | null
+          created_at?: string | null
+          hires?: number | null
+          id?: string
+          impressions?: number | null
+          interviews?: number | null
+          job_posting_id?: string
+          media_name?: string
+          period_end?: string | null
+          period_start?: string | null
+          updated_at?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "performance_data_job_posting_id_fkey"
+            columns: ["job_posting_id"]
+            isOneToOne: false
+            referencedRelation: "job_postings"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      profiles: {
+        Row: {
+          company_name: string | null
+          created_at: string | null
+          email: string | null
+          full_name: string | null
+          id: string
+          role: string | null
+          updated_at: string | null
+        }
+        Insert: {
+          company_name?: string | null
+          created_at?: string | null
+          email?: string | null
+          full_name?: string | null
+          id: string
+          role?: string | null
+          updated_at?: string | null
+        }
+        Update: {
+          company_name?: string | null
+          created_at?: string | null
+          email?: string | null
+          full_name?: string | null
+          id?: string
+          role?: string | null
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
+      templates: {
+        Row: {
+          category: string | null
+          content: Json | null
+          created_at: string | null
+          id: string
+          is_public: boolean | null
+          name: string
+          updated_at: string | null
+          user_id: string
+        }
+        Insert: {
+          category?: string | null
+          content?: Json | null
+          created_at?: string | null
+          id?: string
+          is_public?: boolean | null
+          name: string
+          updated_at?: string | null
+          user_id: string
+        }
+        Update: {
+          category?: string | null
+          content?: Json | null
+          created_at?: string | null
+          id?: string
+          is_public?: boolean | null
+          name?: string
+          updated_at?: string | null
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
