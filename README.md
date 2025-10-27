@@ -123,9 +123,24 @@ npm run dev
 - [バックエンドAPI ドキュメント](./BACKEND_README.md)
 - [デプロイメントガイド](./DEPLOYMENT.md)
 
-## How can I deploy this project?
+## 本番環境へのデプロイ
 
-Simply open [Lovable](https://lovable.dev/projects/a01ccc5d-48cc-4c95-9aa7-4d9a5a8867d6) and click on Share -> Publish.
+### Vercelで動作させる（推奨）
+
+本番環境URL: **https://file-to-frame-craft.vercel.app/**
+
+**クイックスタート（16分で完了）:**
+1. Anthropic APIキーを取得
+2. Supabase Edge Functionsをデプロイ
+3. Vercel環境変数を設定
+4. 動作確認
+
+詳細手順: [QUICKSTART.md](./QUICKSTART.md) または [VERCEL_SETUP.md](./VERCEL_SETUP.md)
+
+### その他のデプロイ方法
+
+フロントエンドのみ（AI機能なし）:
+- [Lovable](https://lovable.dev/projects/a01ccc5d-48cc-4c95-9aa7-4d9a5a8867d6) で Share → Publish
 
 ## Can I connect a custom domain to my Lovable project?
 

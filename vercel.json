@@ -1,0 +1,20 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "devCommand": "npm run dev",
+  "installCommand": "npm install",
+  "framework": "vite",
+  "env": {
+    "VITE_SUPABASE_URL": {
+      "description": "Supabase project URL",
+      "value": "https://rmyvlbedxurypaujbspq.supabase.co"
+    },
+    "VITE_SUPABASE_PUBLISHABLE_KEY": {
+      "description": "Supabase publishable/anon key"
+    },
+    "VITE_SUPABASE_PROJECT_ID": {
+      "description": "Supabase project ID",
+      "value": "rmyvlbedxurypaujbspq"
+    }
+  }
+}

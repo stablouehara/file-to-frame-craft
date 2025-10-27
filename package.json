@@ -8,7 +8,11 @@
     "build": "vite build",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy:functions": "bash ./scripts/deploy-functions.sh",
+    "supabase:login": "npx supabase login",
+    "supabase:link": "npx supabase link --project-ref rmyvlbedxurypaujbspq",
+    "supabase:deploy": "npx supabase functions deploy"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
