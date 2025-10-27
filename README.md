@@ -1,4 +1,18 @@
-# Welcome to your Lovable project
+# File-to-Frame-Craft
+
+AI駆動型の採用ダッシュボード - 日本の採用担当者向けに最適化された求人管理・分析ツール
+
+## プロジェクト概要
+
+File-to-Frame-Craftは、日本の採用担当者やHR部門向けのAIパワードダッシュボードです。求人の作成から最適な媒体への掲載、パフォーマンスの追跡まで、採用活動全体をサポートします。
+
+### 主な機能
+
+- **AI求人媒体推薦** - Indeed、Wantedly、ビズリーチなど、求人に最適な媒体を自動推薦
+- **AI広告コピー生成** - 各媒体向けに最適化された広告文を自動生成
+- **採用パフォーマンス分析** - 応募数、採用数、CPA等の指標を可視化
+- **AIインサイト** - データを分析して改善提案を自動生成
+- **ナレッジベース** - 成功事例やテンプレートを蓄積・活用
 
 ## Project info
 
@@ -52,13 +66,62 @@ npm run dev
 
 ## What technologies are used for this project?
 
-This project is built with:
+### フロントエンド
+- **Vite** - ビルドツール
+- **TypeScript** - 型安全なJavaScript
+- **React 18** - UIライブラリ
+- **shadcn-ui** - UIコンポーネント
+- **Tailwind CSS** - スタイリング
+- **Recharts** - データ可視化
+- **React Query** - データフェッチング
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### バックエンド
+- **Supabase** - データベース、認証、Edge Functions
+- **PostgreSQL** - リレーショナルデータベース
+- **Supabase Edge Functions** - サーバーレスAPI（Deno）
+- **Anthropic Claude API** - AI推薦・生成機能
+
+## バックエンドAPIのセットアップ
+
+このプロジェクトには、AI機能を提供するバックエンドAPIが含まれています。
+
+### クイックスタート
+
+1. **Anthropic APIキーを取得**
+   ```bash
+   # https://console.anthropic.com/ でAPIキーを取得
+   ```
+
+2. **環境変数を設定**
+   ```bash
+   # .envファイルに追加
+   ANTHROPIC_API_KEY="your-api-key-here"
+   ```
+
+3. **Supabase CLIをインストール**
+   ```bash
+   npm install -g supabase
+   ```
+
+4. **Edge Functionsをデプロイ**
+   ```bash
+   supabase link --project-ref rmyvlbedxurypaujbspq
+   supabase secrets set ANTHROPIC_API_KEY=your-api-key-here
+   supabase functions deploy
+   ```
+
+### AI機能のテスト
+
+AI機能をテストするには：
+```bash
+npm run dev
+```
+
+ブラウザで `http://localhost:8080/ai-demo` にアクセス
+
+詳細なセットアップ手順は以下を参照：
+- [バックエンドAPI ドキュメント](./BACKEND_README.md)
+- [デプロイメントガイド](./DEPLOYMENT.md)
 
 ## How can I deploy this project?
 
